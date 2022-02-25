@@ -112,33 +112,33 @@ class TestPetShop(unittest.TestCase):
         count = get_stock_count(self.cc_pet_shop)
         self.assertEqual(6, count)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_all_pets_by_breed__found(self):
         pets = get_pets_by_breed(self.cc_pet_shop, "British Shorthair")
         self.assertEqual(2, len(pets))
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_all_pets_by_breed__not_found(self):
         pets = get_pets_by_breed(self.cc_pet_shop, "Dalmation")
         self.assertEqual(0, len(pets))
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_find_pet_by_name__returns_pet(self):
         pet = find_pet_by_name(self.cc_pet_shop, "Arthur")
         self.assertEqual("Arthur", pet["name"])
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_find_pet_by_name__returns_None(self):
         pet = find_pet_by_name(self.cc_pet_shop, "Fred")
         self.assertIsNone(pet)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_remove_pet_by_name(self):
         remove_pet_by_name(self.cc_pet_shop, "Arthur")
         pet = find_pet_by_name(self.cc_pet_shop,"Arthur")
         self.assertIsNone(pet)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_add_pet_to_stock(self):
         add_pet_to_stock(self.cc_pet_shop, self.new_pet)
         count = get_stock_count(self.cc_pet_shop)
