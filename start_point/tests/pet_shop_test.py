@@ -79,18 +79,18 @@ class TestPetShop(unittest.TestCase):
         name = get_pet_shop_name(self.cc_pet_shop)
         self.assertEqual("Camelot of Pets", name)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_total_cash(self):
         sum = get_total_cash(self.cc_pet_shop)
         self.assertEqual(1000, sum)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_add_or_remove_cash__add(self):
         add_or_remove_cash(self.cc_pet_shop,10)
         cash = get_total_cash(self.cc_pet_shop)
         self.assertEqual(1010, cash)
 
-    @unittest.skip("delete this line to run the test")
+    # @unittest.skip("delete this line to run the test")
     def test_add_or_remove_cash__remove(self):
         add_or_remove_cash(self.cc_pet_shop,-10)
         cash = get_total_cash(self.cc_pet_shop)
