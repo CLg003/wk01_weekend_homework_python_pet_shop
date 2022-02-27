@@ -10,14 +10,12 @@ def get_total_cash(pet_shop):
 
 def add_or_remove_cash(pet_shop, transaction):
     pet_shop["admin"]["total_cash"] += transaction
-    return get_total_cash(pet_shop)
 
 def get_pets_sold(pet_shop):
     return pet_shop["admin"]["pets_sold"]
 
 def increase_pets_sold(pet_shop, new_pets_sold):
     pet_shop["admin"]["pets_sold"] += new_pets_sold
-    return get_pets_sold(pet_shop)
 
 def get_stock_count(pet_shop):
     return len(pet_shop["pets"])
@@ -41,7 +39,8 @@ def find_pet_by_name(pet_shop, name):
 #             pet_shop["pets"].remove(pet)
 
 def remove_pet_by_name(pet_shop, name):
-    pet_shop["pets"].remove(find_pet_by_name(pet_shop, name))
+    if find_pet_by_name(pet_shop, name):
+        pet_shop["pets"].remove(find_pet_by_name(pet_shop, name))
 
 def add_pet_to_stock(pet_shop, new_pet):
     pet_shop["pets"].append(new_pet)
@@ -67,9 +66,9 @@ def sell_pet_to_customer(pet_shop, pet, customer):
     # pdb.set_trace()
     if pet == None:
         return
-    if (customer_can_afford_pet(customer, pet) == True):
+    if (customer_can_afford_pet(customer, pet)):
             remove_customer_cash(customer, pet["price"])
-            add_or_remove_cash(pet_shop, pet["price"]) # +/-price??
+            add_or_remove_cash(pet_shop, pet["price"])
             add_pet_to_customer(customer, pet)
             remove_pet_by_name(pet_shop, pet["name"])
             increase_pets_sold(pet_shop, 1)
